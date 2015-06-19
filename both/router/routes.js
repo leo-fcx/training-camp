@@ -6,6 +6,10 @@ Router.route('/dashboard', {
   name: 'dashboard'
 });
 
+Router.route('/profile', {
+  name: 'profile'
+});
+
 Router.plugin('ensureSignedIn', {
-  only: ['dashboard']
+  only: ['dashboard', 'profile']
 });
