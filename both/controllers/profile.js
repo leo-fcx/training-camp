@@ -29,9 +29,9 @@ ProfileController.events({
 
     'click .btn.discard': function (event, template) {
         var profile = Meteor.user().profile;
-        firstName: template.find('input#at-field-first-name').value = profile.firstName;
-        lastName: template.find('input#at-field-last-name').value = profile.lastName;
-        alternativeEmail: template.find('input#at-field-alternative-email').value = profile.alternativeEmail;
-        repository: template.find('input#at-field-repository').value = profile.repository;
+        template.find('input#at-field-first-name').value = profile.firstName;
+        template.find('input#at-field-last-name').value = profile.lastName;
+        template.find('input#at-field-alternative-email').value = profile.alternativeEmail;
+        template.find('input#at-field-repository').value = profile.repository;
     }
 });
