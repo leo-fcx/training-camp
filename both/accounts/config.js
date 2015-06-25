@@ -1,9 +1,9 @@
+
 AccountsTemplates.configure({
-    // Behaviour
     enablePasswordChange: true,
     showForgotPasswordLink: true,
-    sendVerificationEmail: true,
-    showResendVerificationEmailLink: true
+    sendVerificationEmail: true
+    //showResendVerificationEmailLink: true
 });
 
 AccountsTemplates.configureRoute('signIn', {layoutTemplate: 'appLayout'});

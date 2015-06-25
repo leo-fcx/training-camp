@@ -4,7 +4,8 @@
     <div class="container">
 
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
+        <button type="button" class="navbar-toggle collapsed"
+                data-toggle="collapse" data-target="#main-nav">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -18,24 +19,48 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-user"></i> {{ currentUser.profile.name }} <i class="fa fa-caret-down"></i>
+                <i class="fa fa-user"></i> {{ currentUser.profile.name }} <i
+                  class="fa fa-caret-down"></i>
               </a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="/profile" data-action=""><i class="fa fa-file-text"></i> Profile</a></li>
-                <li><a href="#" data-action="logout"><i class="fa fa-lock"></i> Sign Out</a></li>
+
+                <li>
+                  <a>
+                    Name LastName <br/>
+                    name@email.com <br/>
+                    user@alternative-email.com <br/>
+                  </a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                  <a href="/profile" data-action="">
+                    <i class="fa fa-file-text"></i> Profile
+                  </a>
+                </li>
+                <li>
+                  <a href="#" data-action="logout">
+                    <i class="fa fa-lock"></i> Sign Out
+                  </a>
+                </li>
               </ul>
             </li>
           </ul>
         {{else}}
           <div class="navbar-right">
-            <a href="{{ pathFor 'atSignIn' }}" class="btn btn-default navbar-btn">Sign in</a>
-            <a href="{{ pathFor 'atSignUp' }}" class="btn btn-primary navbar-btn">Register</a>
+            <a href="{{ pathFor 'atSignIn' }}"
+               class="btn btn-default navbar-btn">Sign in</a>
+            <a href="{{ pathFor 'atSignUp' }}"
+               class="btn btn-primary navbar-btn">Register</a>
           </div>
         {{/if}}
 
         <ul class="nav navbar-nav navbar-right">
-          <li class="{{ isActiveRoute regex='home' }}"><a href="{{ pathFor 'home' }}"><i class="fa fa-home"></i> Home</a></li>
-          <li class="{{ isActiveRoute regex='dashboard' }}"><a href="{{ pathFor 'dashboard' }}"><i class="fa fa-gear"></i> Dashboard</a></li>
+          <li class="{{ isActiveRoute regex='home' }}"><a
+              href="{{ pathFor 'home' }}"><i class="fa fa-home"></i> Home</a>
+          </li>
+          <li class="{{ isActiveRoute regex='dashboard' }}"><a
+              href="{{ pathFor 'dashboard' }}"><i class="fa fa-gear"></i>
+            Dashboard</a></li>
         </ul>
       </div>
 

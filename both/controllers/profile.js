@@ -1,10 +1,13 @@
 ProfileController = AppController.extend({
-    waitOn: function() {
+    waitOn: function () {
         return this.subscribe('items');
     },
     data: {
-        email: function(){
+        email: function () {
             return Meteor.user().emails['0'].address;
+        },
+        profile: function () {
+            return Meteor.user().profile;
         }
     },
     onAfterAction: function () {
@@ -13,7 +16,22 @@ ProfileController = AppController.extend({
 });
 
 ProfileController.events({
-    'click [data-action=doSomething]': function (event, template) {
-        event.preventDefault();
+
+    'click .btn.save': function (event, template) {
+
+        Meteor.call('Profile.update', {
+            firstName: template.find('input#at-field-first-name').value,
+            lastName: template.find('input#at-field-last-name').value,
+            alternativeEmail: template.find('input#at-field-alternative-email').value,
+            repository: template.find('input#at-field-repository').value
+        });
+    },
+
+    'click .btn.discard': function (event, template) {
+        var profile = Meteor.user().profile;
+        firstName: template.find('input#at-field-first-name').value = profile.firstName;
+        lastName: template.find('input#at-field-last-name').value = profile.lastName;
+        alternativeEmail: template.find('input#at-field-alternative-email').value = profile.alternativeEmail;
+        repository: template.find('input#at-field-repository').value = profile.repository;
     }
 });
