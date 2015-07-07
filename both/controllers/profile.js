@@ -1,23 +1,25 @@
 ProfileController = AppController.extend({
-    //waitOn: function () {
-    //    return this.subscribe('items');
-    //},
-    //data: (function(){
-    //    console.log('LEO', this.userId);
-    //    return this.user;
-    //})()
+    waitOn: function () {
+        return this.subscribe('items');
+    },
+    data: {
+        myItem: function(){
+            console.log(Items.findOne());
+            return Items.findOne();
+        }
+    },
 
-    ////data: {
-    ////    email: function () {
-    ////        return Meteor.user().emails['0'].address;
-    ////    },
-    ////    profile: function () {
-    ////        return Meteor.user().profile;
-    ////    }
-    ////},
-    //onAfterAction: function () {
-    //    Meta.setTitle('My profile');
-    //}
+    //data: {
+    //    email: function () {
+    //        return Meteor.user().emails['0'].address;
+    //    },
+    //    profile: function () {
+    //        return Meteor.user().profile;
+    //    }
+    //},
+    onAfterAction: function () {
+        Meta.setTitle('My profile');
+    }
 });
 
 ProfileController.events({
@@ -39,4 +41,8 @@ ProfileController.events({
     //    template.find('input#at-field-alternative-email').value = profile.alternativeEmail;
     //    template.find('input#at-field-repository').value = profile.repository;
     //}
+
+    'click button.btn-primary': function (event, template) {
+        //event.preventDefault();
+    }
 });

@@ -19,22 +19,22 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-user"></i> {{ currentUser.profile.name }} <i
+                <i class="fa fa-user"></i> {{ currentUser.profile.firstName }} <i
                   class="fa fa-caret-down"></i>
               </a>
               <ul class="dropdown-menu" role="menu">
 
                 <li>
-                  <a>
-                    Name LastName <br/>
-                    name@email.com <br/>
-                    user@alternative-email.com <br/>
+                  <a class="disabled">
+                    <b>User:</b> {{fullName}} <br/>
+                    <b>E-mail:</b> {{primaryEmail}} <br/>
+                    <b>Alternative e-mail:</b> {{alternativeEmail}} <br/>
                   </a>
                 </li>
                 <li role="separator" class="divider"></li>
                 <li>
-                  <a href="/profile" data-action="">
-                    <i class="fa fa-file-text"></i> Profile
+                  <a href="/profile">
+                    <i class="fa fa-user"></i> My account
                   </a>
                 </li>
                 <li>

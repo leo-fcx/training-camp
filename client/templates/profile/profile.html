@@ -3,17 +3,21 @@
     <div class="page-header">
       <h1>My account</h1>
     </div>
-    {{#autoForm id="updateProfile" collection=users type=formType autosave=true doc=currentUser validation="submit"}}
+    {{#autoForm id="updateProfile" type="update" collection=users doc=currentUser resetOnSuccess=false omitFields="username, createdAt, services"}}
       <fieldset>
-        {{> afQuickField name='emails.0.address' readonly=true label='Email address (username)'}}
-        {{> afQuickField name='emails.1.address' label='Alternative email address'}}
-        {{> afObjectField name='profile' validation=true}}
+        {{> afQuickField name="emails.0.address" readonly=true label="Email address (username)"}}
+        {{> afQuickField name="emails.1.address" label="Alternative email address"}}
+
+        {{> afObjectField name="profile"}}
 
       </fieldset>
       <p class="text-center">
+        <button type="reset" class="btn btn-secondary">Reset</button>
         <button type="submit" class="btn btn-primary">Save</button>
       </p>
     {{/autoForm}}
+
+    <!--{{> quickForm id="updateItem" type="update" collection=allItems doc=myItem}}-->
 
   </div>
 </template>
